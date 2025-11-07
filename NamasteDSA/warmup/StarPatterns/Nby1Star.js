@@ -11,3 +11,10 @@ function print1bynStar(n) {
 }
 
 print1bynStar(5)
+
+// Output:
+// *
+// **
+// ***
+// ****
+// *****

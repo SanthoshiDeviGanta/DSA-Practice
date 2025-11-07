@@ -9,3 +9,11 @@ function printNbyNStar(n) {
 }
 
 printNbyNStar(5);
+
+// Output:
+
+// *****
+// *****
+// *****
+// *****
+// *****

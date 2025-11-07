@@ -11,7 +11,12 @@ function print1byNAscNumbers(n) {
 
 print1byNAscNumbers(5);
 
-
+// Output:
+// 1
+// 12
+// 123
+// 1234
+// 12345
 
 
 

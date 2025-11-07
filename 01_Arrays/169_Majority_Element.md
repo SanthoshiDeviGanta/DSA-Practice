@@ -1,4 +1,4 @@
-##[Leetcode 169: Majority Element](https://leetcode.com/problems/majority-element/)
+## [Leetcode 169: Majority Element](https://leetcode.com/problems/majority-element/)
 
 ### Question:
 
@@ -8,32 +8,31 @@ The majority element is the element that appears more than ⌊n / 2⌋ times. Yo
 
 Example 1:
 
-Input: nums = [3,2,3]
-Output: 3
-Example 2:
+Input: nums = [3,2,3] Output: 3 Example 2:
 
-Input: nums = [2,2,1,1,1,2,2]
-Output: 2
+Input: nums = [2,2,1,1,1,2,2] Output: 2
 
 ### Approaches:
 
-1.[HashMap Approach](#hashmap - approach) 2.[Sorting Approach](#sorting - approach) 3.[Boyer - Moore Voting Algorithm](#boyer - moore - voting - algorithm)
+1. [HashMap Approach](#hashmap-approach)
+2. [Sorting Approach](#sorting-approach)
+3. [Boyer-Moore Voting Algorithm](#boyer-moore-voting-algorithm)
 
 ---
 
 ### HashMap Approach
 
-    ** Intuition:**
+**Intuition:**
 
-        The basic idea is to use a HashMap to count the occurrences of each element in the array.The element with a count greater than `n/2` is the majority element.
+The basic idea is to use a HashMap to count the occurrences of each element in the array. The element with a count greater than `n/2` is the majority element.
 
-** Steps:**
+**Steps:**
 
 1. Initialize an empty HashMap to store the count of each element.
 2. Iterate through the array, and for each element, update its count in the HashMap.
-3. As soon as an element’s count becomes greater than`n/2`, return that element.
+3. As soon as an element’s count becomes greater than `n/2`, return that element.
 
-** Code:**
+**Code:**
 
 ```javascript
 function majorityElement(nums) {
@@ -51,20 +50,23 @@ function majorityElement(nums) {
 }
 ```
 
-** Time Complexity:** O(n) - We traverse the array once.
-** Space Complexity:** O(n) - We store counts for up to n / 2 + 1 different elements.
+**Time Complexity:** O(n) - We traverse the array once.
+**Space Complexity:** O(n) - We store counts for up to n/2 + 1 different elements.
 
 ---
 
 ### Sorting Approach
 
-** Intuition:**
+**Intuition:**
 
-        By sorting the array, the majority element(which appears more than n / 2 times) must be present in the middle of the array.
+By sorting the array, the majority element (which appears more than n/2 times) must be present in the middle of the array.
 
-** Steps:** 1. Sort the array. 2. Return the element at the middle index.
+**Steps:**
 
-** Code:**
+1. Sort the array.
+2. Return the element at the middle index.
+
+**Code:**
 
 ```javascript
 function majorityElement(nums) {
@@ -76,57 +78,49 @@ function majorityElement(nums) {
 }
 ```
 
-** Time Complexity:** O(n log n) - Due to the sort operation.
-
-** Space Complexity:** O(1) - Ignoring the space used by sort.
+**Time Complexity:** O(n log n) - Due to the sort operation.
+**Space Complexity:** O(1) - Ignoring the space used by sort.
 
 ---
 
-### Boyer - Moore Voting Algorithm
+### Boyer-Moore Voting Algorithm
 
-    ** Intuition:**
+**Intuition:**
 
-        This optimal approach involves counting a candidate element against others.If a number is the majority, it will be the last element standing after cancellations.
+This optimal approach involves counting a candidate element against others. If a number is the majority, it will be the last element standing after cancellations.
 
-** Steps:** 1. Initialize`count` as 0 and`candidate` as undefined at the start. 2. Loop through the array:
+**Steps:**
 
-- If`count` is 0, set the current number as `candidate` and increment`count`.
-  - If the current number is the same as `candidate`, increment`count`.
-  - Otherwise, decrement`count`.
+1. Initialize `count` as 0 and `candidate` as undefined at the start.
+2. Loop through the array:
+   - If `count` is 0, set the current number as `candidate` and increment `count`.
+   - If the current number is the same as `candidate`, increment `count`.
+   - Otherwise, decrement `count`.
+3. Return `candidate`, the majority element.
 
-3. Return`candidate`, the majority element.
+**Code:**
 
-** Code:**
-
-    ```javascript
-
+```javascript
 function majorityElement(nums) {
-let count = 0;
-let candidate = null;
+  let count = 0;
+  let candidate = null;
 
-    for (let num of nums) {
-        // Assign a new candidate if count drops to zero
-        if (count === 0) {
-            candidate = num;
-        }
-
-        // Increment or decrement the count
-        count += (num === candidate) ? 1 : -1;
+  for (let num of nums) {
+    // Assign a new candidate if count drops to zero
+    if (count === 0) {
+      candidate = num;
     }
 
-    // The remaining candidate is the majority element
-    return candidate;
+    // Increment or decrement the count
+    count += num === candidate ? 1 : -1;
+  }
 
+  // The remaining candidate is the majority element
+  return candidate;
 }
-
 ```
 
-    ** Time Complexity:** O(n) - We traverse the array once.
-** Space Complexity:** O(1) - Only constant space is used.
+**Time Complexity:** O(n) - We traverse the array once.
+**Space Complexity:** O(1) - Only constant space is used.
 
 ---
-```
-
-```
-
-```

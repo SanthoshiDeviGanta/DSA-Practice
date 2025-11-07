@@ -1,9 +1,9 @@
-[Leetcode 238: Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
+# [Leetcode 238: Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
 
 ## Approaches
 
 - [Approach 1: Brute Force](#approach-1-brute-force)
-- [Approach 2: Dividing Total Product by Element](#approach-2-dividing-total-product-by-element)
+- [Approach 2: Dividing Total Product by Element(Divisor Method)](#approach-2-dividing-total-product-by-element)
 - [Approach 3: Using Prefix and Suffix Products](#approach-3-using-prefix-and-suffix-products)
 
 ### Approach 1: Brute Force

@@ -98,9 +98,8 @@ return [duplicate, missing];
 ✅ Time Complexity: O(n)
 ✅ Space Complexity: O(1)
 
-| Approach | Idea | Time | Space | Notes |
-
+| Approach           | Idea                    | Time | Space | Notes                    |
 | ------------------ | ----------------------- | ---- | ----- | ------------------------ |
-| Math(Sum / Squares) | Uses formula difference | O(n) | O(1) | Elegant & precise |
-| HashSet | Track seen numbers | O(n) | O(n) | Simple, easy to remember |
-| In - place | Mark visited indices | O(n) | O(1) | Best for interviews |
+| Math (Sum/Squares) | Uses formula difference | O(n) | O(1)  | Elegant & precise        |
+| HashSet            | Track seen numbers      | O(n) | O(n)  | Simple, easy to remember |
+| In-place           | Mark visited indices    | O(n) | O(1)  | Best for interviews      |

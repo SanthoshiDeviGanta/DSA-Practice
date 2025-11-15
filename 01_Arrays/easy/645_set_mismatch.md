@@ -82,17 +82,24 @@ Modify array signs to mark presence:
 
 ```javascript
 var findErrorNums = function (nums) {
-let duplicate, missing;
-for (let num of nums) {
-let idx = Math.abs(num) - 1;
-if (nums[idx] < 0) duplicate = Math.abs(num);
-else nums[idx] \*= -1;
-}
-for (let i = 0; i < nums.length; i++) {
-if (nums[i] > 0) missing = i + 1;
-}
-return [duplicate, missing];
+  let duplicate, missing;
+  for (let num of nums) {
+    let idx = Math.abs(num) - 1;
+    if (nums[idx] < 0) duplicate = Math.abs(num);
+    else nums[idx] *= -1;
+  }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > 0) missing = i + 1;
+  }
+  return [duplicate, missing];
 };
+```
+
+```javascript
+let nums = [1, 3, 3, 4]; // [3,2]
+// let nums= [1,1]// [1,2]
+// let nums = [2,2] // [2,1]
+console.log(findErrorNums(nums));
 ```
 
 ✅ Time Complexity: O(n)

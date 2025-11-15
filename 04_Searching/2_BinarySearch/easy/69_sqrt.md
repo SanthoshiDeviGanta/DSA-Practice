@@ -2,8 +2,8 @@
 
 ## Approaches
 
-1. [Binary Search](#binary-Search)
-2. [Newton’s Method (a.k.a. Newton–Raphson)](#reverse-approach)
+1. [Binary Search](#binary-search)
+2. [Newton's Method (a.k.a. Newton–Raphson)](#newtons-method)
 
 ## Binary Search
 
@@ -31,7 +31,7 @@ const mySqrt = (x) => {
 };
 ```
 
-## Binary Search
+## Newton’s Method
 
 ### Code
 

@@ -1,4 +1,4 @@
-import { createLinkedList, printLinkedList } from "./0_LL.js";
+import { createLinkedList, printLinkedList } from "../0_LL.js";
 
 var middleNode = function (head) {
     let slow = head;

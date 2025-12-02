@@ -24,3 +24,15 @@ export function printLinkedList(head) {
     }
     console.log(values);
 }
+
+export function arrayToLL(arr) {
+    let dummy = { val: 0, next: null };
+    let current = dummy;
+
+    for (let val of arr) {
+        current.next = { val, next: null };
+        current = current.next;
+    }
+
+    return dummy.next;
+}

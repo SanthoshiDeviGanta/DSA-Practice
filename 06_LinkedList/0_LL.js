@@ -36,3 +36,7 @@ export function arrayToLL(arr) {
 
     return dummy.next;
 }
+
+export function ListNode(val = 0) {
+    return { val, next: null }
+}

@@ -41,7 +41,7 @@ function reverseStr(str, k) {
   return splitted.join("");
 }
 
-// console.log("out", reverseStr("abcdefghijklmopq", 3)); // "cbadefihgjklpomq"
+console.log("out", reverseStr("abcdefghijklmn", 3)); // "cbadefihgjklpomq"
 // console.log("out", reverseStr("abcdefghijklmopqrstu", 3)); // "cbadefihgjklpomqrstu"
 
 console.log("out", reverseStr("abcdefg", 2)); // bacdfeg

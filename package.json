@@ -1,0 +1,6 @@
+{
+    "type": "module",
+    "imports": {
+        "#utils/*": "./utils/*.js"
+    }
+}

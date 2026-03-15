@@ -28,9 +28,9 @@ function expandAroundCenter(s, left, right) {
   return result;
 }
 
-// console.log(longestPalindrome("racecar"));
+console.log(longestPalindrome("racecar"));
 // console.log(longestPalindrome("cbbd"));
-console.log(longestPalindrome("cccc"));
+// console.log(longestPalindrome("cccc"));
 
 // console.log(
 //   "returned 1",

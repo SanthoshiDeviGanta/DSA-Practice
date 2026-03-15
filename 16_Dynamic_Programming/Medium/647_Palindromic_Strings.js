@@ -103,10 +103,13 @@ function countSubstrings(s) {
 
   for (let i = 0; i < s.length; i++) {
     // Odd Index as center
-    totalCount += expandAroundCenter(s, i, i);
+    console.log("ii", i);
 
+    totalCount += expandAroundCenter(s, i, i);
+    console.log("----------------------------");
     // Even index as center
     totalCount += expandAroundCenter(s, i, i + 1);
+    console.log("------------------------------------------");
   }
 
   return totalCount;
@@ -114,11 +117,16 @@ function countSubstrings(s) {
 
 function expandAroundCenter(s, left, right) {
   let count = 0;
-
+  console.log("s[left] --", left, s[left]);
+  console.log("s[right] --", right, s[right]);
   while (left >= 0 && right < s.length && s[left] === s[right]) {
+    console.log("left, right", left, right);
     count++;
     left--;
     right++;
+    console.log("s[left]", s[left]);
+    console.log("s[right]", s[right]);
+    console.log("------");
   }
 
   return count;
@@ -127,4 +135,5 @@ function expandAroundCenter(s, left, right) {
 // console.log(countSubstrings("caa"));
 // console.log(countSubstrings("racecar"));
 // console.log(countSubstrings("cabadabac"));
-console.log(countSubstrings("amma"));
+// console.log(countSubstrings("amma"));
+console.log(countSubstrings("MADAM"));

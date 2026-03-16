@@ -2,5 +2,8 @@
     "javascript.preferences.importModuleSpecifierEnding": "js",
     "typescript.preferences.importModuleSpecifierEnding": "js",
     "javascript.suggest.autoImports": true,
-    "typescript.suggest.autoImports": true
+    "typescript.suggest.autoImports": true,
+    "code-runner.executorMap": {
+        "javascript": "/Users/santhoshi.devi/.nvm/versions/node/v23.6.1/bin/node",
+    }
 }

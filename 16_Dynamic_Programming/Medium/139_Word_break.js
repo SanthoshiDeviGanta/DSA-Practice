@@ -1,12 +1,11 @@
 // var wordBreak = function (s, wordDict) {
 //   let memo = new Map();
-//   let wordDictSet = new Set(wordDict);
-//   console.log(wordDictSet);
-
 //   let sL = s.length;
 
 //   function checkWord(start) {
 //     let ans = false;
+//     console.log("memo", memo);
+
 //     if (start === sL) {
 //       ans = true;
 //     }
@@ -16,14 +15,12 @@
 //     for (let end = start + 1; end <= sL; end++) {
 //       let word = s.substring(start, end);
 //       console.log("word", word);
-//       if (wordDictSet.has(word)) {
+//       if (wordDict.includes(word)) {
 //         memo.set(word, true);
 //         if (checkWord(end)) {
 //           return true;
 //         }
 //         console.log("-----");
-//       } else {
-//         memo.set(word, false);
 //       }
 //     }
 
@@ -41,49 +38,79 @@
 //     console.log("memo", memo);
 //     if (remStr in memo) return memo[remStr];
 
-//     let res = false;
 //     for (let i = 0; i < remStr.length; i++) {
 //       let subStr = remStr.substring(0, i + 1);
 //       console.log("subStr", subStr);
 //       if (wordDict.includes(subStr) && checkWord(remStr.substring(i + 1))) {
-//         res = true;
+//         memo[remStr] = true;
+//         return true;
 //       }
 //     }
-
-//     return (memo[remStr] = res);
+//     memo[remStr] = false;
+//     return false;
 //   }
 
 //   return checkWord(s);
 // };
 
-/**
- * @param {string} s
- * @param {string[]} wordDict
- * @return {boolean}
- */
 var wordBreak = function (s, wordDict) {
-  const wordSet = new Set(wordDict);
-  const n = s.length;
+  let memo = new Map();
+  const wordsDict = new Set(wordDict);
 
-  // dp[i] represents if the prefix s.substring(0, i) can be segmented
-  const dp = new Array(n + 1).fill(false);
+  function checkWord(remStr) {
+    if (remStr === "") return true;
+    console.log("memo", memo);
+    if (memo.has(remStr)) return memo.get(remStr);
+    if (wordsDict.has(remStr)) return true;
 
-  // Base case: an empty string can be "segmented"
-  dp[0] = true;
-
-  for (let i = 1; i <= n; i++) {
-    for (let j = 0; j < i; j++) {
-      // If the first part s[0...j] is valid AND the second part s[j...i] is in the dictionary
-      if (dp[j] && wordSet.has(s.substring(j, i))) {
-        dp[i] = true;
-        break; // Found a valid split for index i, no need to check further j's
+    for (let i = 0; i < remStr.length; i++) {
+      let subStr = remStr.substring(0, i + 1);
+      console.log("subStr", subStr);
+      if (wordsDict.has(subStr) && checkWord(remStr.substring(i + 1))) {
+        memo.set(remStr, true);
+        return true;
       }
     }
-    console.log("dp", dp);
+    memo.set(remStr, false);
+    return false;
   }
 
-  return dp[n];
+  return checkWord(s);
 };
+
+// var wordBreak = function (s, wordDict) {
+//   const words = new Set(wordDict);
+//   const memo = new Map(); // Store results for starting indices
+
+//   function canBreak(start) {
+//     console.log("memo", memo);
+//     // Base case: we reached the end of the string
+//     if (start === s.length) return true;
+
+//     // Return cached result if we've seen this index before
+//     if (memo.has(start)) return memo.get(start);
+
+//     for (let end = start + 1; end <= s.length; end++) {
+//       const sub = s.substring(start, end);
+//       console.log("sub", sub);
+
+//       // If prefix is in dict AND suffix can be broken
+//       if (words.has(sub) && canBreak(end)) {
+//         memo.set(start, true);
+//         return true;
+//       }
+//     }
+
+//     memo.set(start, false);
+//     return false;
+//   }
+//   return canBreak(0);
+// };
+
+// console.log(wordBreak("applepenapple", ["apple", "pen"]));
+console.log(wordBreak("applepenappl", ["apple", "pen"]));
+// console.log(wordBreak("catsandog", ["cats", "dog", "sand", "and", "cat"]));
+// console.log(wordBreak("abcd", ["a", "abc", "b", "cd"]));
 
 // let s =
 //   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab";
@@ -101,7 +128,3 @@ var wordBreak = function (s, wordDict) {
 //     "aaaaaaaaaa",
 //   ]),
 // );
-console.log(wordBreak("applepenapple", ["apple", "pen"]));
-// console.log(wordBreak("applepenappl", ["apple", "pen"]));
-// console.log(wordBreak("catsandog", ["cats", "dog", "sand", "and", "cat"]));
-// console.log(wordBreak("abcd", ["a", "abc", "b", "cd"]));

@@ -8,11 +8,20 @@ var maxProduct = function (nums) {
     maxProd = Math.max(nums[i], maxProd * nums[i], minProd * nums[i]);
     minProd = Math.min(nums[i], maxProdTemp * nums[i], minProd * nums[i]);
     maxVal = Math.max(maxVal, maxProd);
+    console.log(
+      nums[i],
+      "--- maxProd",
+      maxProd,
+      "minProd",
+      minProd,
+      "maxVal",
+      maxVal,
+    );
   }
 
   return maxVal;
 };
 
-console.log(maxProduct([2, -5, -2, -4, 3]));
-// console.log(maxProduct([2, -5, 3, 1, -4, 0, -10, 2, 8]));
+// console.log(maxProduct([2, -5, -2, -4, 3]));
+console.log(maxProduct([-2, -5, 3, 1, -4, 0, -10, 2, 8]));
 // console.log(maxProduct([2, 3, -2, 4]));

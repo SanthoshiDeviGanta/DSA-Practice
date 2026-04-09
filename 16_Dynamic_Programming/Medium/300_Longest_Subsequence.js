@@ -46,4 +46,4 @@ var lengthOfLIS = function (nums) {
 };
 
 // console.log(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]));
-console.log(lengthOfLIS([3, 5, 6, 2, 5, 4, 19, 7, 12]));
+console.log(lengthOfLIS([3, 5, 6, 2, 4, 19, 7, 12]));

@@ -24,12 +24,12 @@ var characterReplacement = function (s, k) {
       charMap.set(s[i], charMap.get(s[i]) - 1);
       i++;
     }
-    // console.log("charMap", charMap);
+    console.log("charMap", charMap);
   }
   return max;
 };
 
 // console.log(characterReplacement("AABABBACABAABADAAA", 4));
-// console.log(characterReplacement("AABABBA", 1));
+console.log(characterReplacement("AABABBA", 1));
 // console.log(characterReplacement("AABEAFAABEAFA", 2));
-console.log(characterReplacement("ABAB", 2));
+// console.log(characterReplacement("ABAB", 2));
